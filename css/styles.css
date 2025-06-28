@@ -1,0 +1,570 @@
+/* Variables de Colores */
+:root {
+    --primary-color: #007bff; /* Azul vibrante */
+    --secondary-color: #6c757d; /* Gris para botones secundarios */
+    --accent-color: #28a745; /* Verde para destacar */
+    --text-color: #333;
+    --light-gray: #f8f9fa;
+    --white: #ffffff;
+    --dark-blue: #0056b3;
+    --light-blue: #e7f3ff; /* Un azul muy suave para fondos */
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    overflow-x: hidden; /* Evita el scroll horizontal en casos extraños */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header y Navegación */
+header {
+    background-color: var(--white);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    /* Mejorado el degradado para mayor contraste y legibilidad */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero-bg.jpg') no-repeat center center/cover;
+    color: var(--white);
+    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh; /* Asegura un tamaño mínimo de la sección */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem; /* Ligeramente más grande para impacto */
+    margin-bottom: 25px;
+    line-height: 1.2; /* Mejora la legibilidad de títulos largos */
+}
+
+.hero-content p {
+    font-size: 1.3rem; /* Ligeramente más grande */
+    margin-bottom: 40px;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 14px 30px; /* Un poco más de padding */
+    border-radius: 8px; /* Bordes más redondeados */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Añadida transición de sombra */
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem; /* Fuente un poco más grande */
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+.btn:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-3px); /* Efecto de "levantar" */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* Sombra al pasar el mouse */
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+}
+
+.secondary-btn:hover {
+    background-color: #5a6268; /* Un gris más oscuro al pasar el mouse */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Secciones Generales */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 3rem; /* Títulos de sección más prominentes */
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    position: relative; /* Para el underline animado */
+    display: inline-block; /* Para que el pseudo-elemento se posicione correctamente */
+}
+
+/* Underline animado para los títulos de sección */
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 4px;
+    background-color: var(--accent-color);
+    left: 20%;
+    bottom: -10px;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-out;
+}
+
+section h2:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* Sección Productos */
+.productos-section {
+    background-color: var(--light-blue); /* Fondo ligeramente azulado para diferenciar */
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.product-card {
+    background-color: var(--white); /* Fondo blanco para las tarjetas de producto */
+    border-radius: 12px; /* Bordes más redondeados */
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Sombra más definida */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eee; /* Borde sutil */
+}
+
+.product-card:hover {
+    transform: translateY(-8px); /* Más levantamiento al pasar el mouse */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Sombra más pronunciada */
+}
+
+.product-card img {
+    width: 100%;
+    height: 280px; /* Altura un poco mayor para imágenes de producto */
+    object-fit: cover; /* **Esto asegura que la imagen cubra el área sin distorsionarse.** */
+    display: block;
+    border-bottom: 1px solid #eee; /* Separador visual */
+    border-radius: 12px 12px 0 0; /* Bordes superiores redondeados */
+}
+
+.product-info {
+    padding: 25px; /* Más padding */
+    text-align: left; /* Alineación de texto a la izquierda */
+}
+
+.product-info h3 {
+    font-size: 1.6rem; /* Título de producto más grande */
+    margin-bottom: 12px;
+    color: var(--dark-blue);
+}
+
+.product-info p {
+    font-size: 1.1rem; /* Texto de descripción más grande */
+    color: #666; /* Un gris un poco más suave */
+    margin-bottom: 20px;
+}
+
+.product-info .price {
+    font-size: 1.5rem; /* Precio más grande */
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* Sección Personalización */
+.personalizacion-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 60px; /* Mayor espacio entre elementos */
+    text-align: left;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 100px 20px; /* Más padding vertical */
+}
+
+.personalizacion-section h2 {
+    color: var(--white);
+    margin-bottom: 30px;
+}
+
+/* Desactivar underline animado para este título */
+.personalizacion-section h2::after {
+    content: none;
+}
+
+
+.personalizacion-content {
+    flex: 1;
+    max-width: 600px; /* Controla el ancho del texto */
+}
+
+.personalizacion-content p {
+    font-size: 1.2rem; /* Más grande para mejor lectura */
+    margin-bottom: 40px;
+    line-height: 1.7; /* Mayor espacio entre líneas */
+}
+
+.personalizacion-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.personalizacion-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px; /* Bordes más redondeados */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Sombra más pronunciada */
+    object-fit: contain; /* **Asegura que la imagen completa se vea dentro del contenedor** */
+    /* Si prefieres que la imagen cubra y recorte si es necesario, cambia a `object-fit: cover;` y ajusta el `height` si es necesario */
+}
+
+/* Sección Nosotros */
+.nosotros-section {
+    background-color: var(--light-gray);
+    border-top: 1px solid #eee;
+    padding-bottom: 60px; /* Menos padding inferior para que el texto no quede tan lejos del título */
+}
+
+.nosotros-section p {
+    max-width: 900px; /* Un poco más de ancho para el texto */
+    margin: 0 auto;
+    font-size: 1.2rem; /* Texto un poco más grande */
+    line-height: 1.8;
+}
+
+/* Sección Contacto */
+.contacto-section {
+    background-color: var(--white);
+    padding-top: 60px; /* Menos padding superior para que el texto no quede tan lejos del título */
+}
+
+.contacto-section p {
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 30px; /* Más padding para el formulario */
+    background-color: var(--light-gray); /* Fondo ligero para el formulario */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sombra sutil */
+}
+
+.form-group {
+    margin-bottom: 25px; /* Más espacio entre grupos de formulario */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px; /* Más espacio bajo el label */
+    font-weight: bold;
+    color: var(--dark-blue); /* Color para labels */
+    font-size: 1.1rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 14px; /* Más padding en los inputs */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Bordes más redondeados */
+    font-size: 1.05rem; /* Fuente ligeramente más grande */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición para focus */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color); /* Borde azul al enfocar */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra de enfoque */
+    outline: none; /* Elimina el contorno por defecto del navegador */
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px; /* Altura mínima para el área de texto */
+}
+
+#contact-form button {
+    width: auto;
+    display: block;
+    margin: 30px auto 0 auto; /* Más margen superior para el botón */
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 40px 20px; /* Más padding */
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px; /* Más espacio entre elementos del footer */
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 2.2rem; /* Iconos más grandes */
+    margin: 0 18px; /* Más espacio entre iconos */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: translateY(-5px); /* Efecto de "flotar" más pronunciado */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) { /* Nuevo breakpoint para pantallas más grandes que móviles */
+    section h2 {
+        font-size: 2.8rem;
+    }
+    .personalizacion-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .personalizacion-content {
+        max-width: 90%; /* Ajuste de ancho para el texto */
+    }
+    .personalizacion-image {
+        margin-top: 30px;
+    }
+    .personalizacion-image img {
+        max-width: 90%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.8rem; /* Ajuste para móviles */
+    }
+
+    .hero-content p {
+        font-size: 1.1rem; /* Ajuste para móviles */
+    }
+
+    section {
+        padding: 60px 15px; /* Menos padding en secciones para móviles */
+    }
+
+    section h2 {
+        font-size: 2.2rem; /* Ajuste para móviles */
+        margin-bottom: 30px;
+    }
+    section h2::after {
+        width: 80%;
+        left: 10%;
+    }
+
+
+    .burger {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 80px; /* Ajustar si el header tiene otra altura */
+        background-color: var(--primary-color);
+        height: calc(100vh - 80px); /* Ajustar si el header tiene otra altura */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70%; /* Menos ancho para el menú lateral */
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        z-index: 999;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2); /* Sombra para el menú */
+    }
+
+    .nav-links li {
+        opacity: 0;
+        margin: 25px 0;
+    }
+
+    .nav-links a {
+        color: var(--white);
+        font-size: 1.3rem; /* Más grande para facilitar el clic */
+        text-transform: uppercase; /* Para un estilo más marcado */
+        letter-spacing: 2px; /* Espaciado entre letras */
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    .product-card img {
+        height: 220px; /* Ajuste de altura para móviles */
+    }
+
+    .product-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .product-info p {
+        font-size: 0.95rem;
+    }
+
+    .product-info .price {
+        font-size: 1.2rem;
+    }
+
+    .personalizacion-content p {
+        font-size: 1rem;
+    }
+
+    .nosotros-section p {
+        font-size: 1rem;
+    }
+
+    .contacto-section p {
+        font-size: 1rem;
+    }
+
+    #contact-form {
+        padding: 20px;
+    }
+
+    .social-links a {
+        font-size: 1.8rem;
+        margin: 0 10px;
+    }
+}
+
+/* Animación de la hamburguesa */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Animación de los links de navegación (para cuando el menú se abre) */
+/* Esto debería ir en tu JS para aplicarse cuando la clase 'nav-active' se añade */
+/* Aquí solo el CSS para la animación */
+.nav-active .nav-links li {
+    animation: navLinkFade 0.5s ease forwards 0.3s; /* Delay para que aparezcan uno tras otro */
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Esto es un ejemplo, deberías ajustar el 'animation-delay' si tienes más elementos */
+.nav-active .nav-links li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.nav-active .nav-links li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.nav-active .nav-links li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.nav-active .nav-links li:nth-child(4) {
+    animation-delay: 0.4s;
+}
+.nav-active .nav-links li:nth-child(5) {
+    animation-delay: 0.5s;
+}
