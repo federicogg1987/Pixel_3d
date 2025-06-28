@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Tu número de WhatsApp con código de país, sin '+' ni espacios
+    // ¡IMPORTANTE: CAMBIA ESTE NÚMERO POR EL TUYO REAL!
+    // Ejemplo para Argentina (Córdoba) si tu número es 351-1234567, sería 5493511234567
+    const WHATSAPP_NUMBER = '5493512339940'; 
+
     // --- Navegación Responsiva (Menú Hamburguesa) ---
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
@@ -81,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             image: 'img/product-8.jpg', // Ruta de tu imagen
-            name: 'Lllavero estrelita',
+            name: 'Llavero estrellita', // Corregido typo aquí, era 'Lllavero'
             /*description: 'Detalle increíble y colores vibrantes. Ideal para coleccionistas.',
             price: '$35.00'*/
         },
@@ -91,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
             /*description: 'Diseño moderno y funcional para organizar tu escritorio.',
             price: '$20.00'*/
         }
-        // Puedes añadir más productos aquí siguiendo el mismo formato
     ];
 
     function loadProducts() {
@@ -101,6 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const productCard = document.createElement('div');
             productCard.classList.add('product-card');
 
+            // Asegúrate de añadir un data-attribute para el nombre del producto
+            // Ya que description y price están comentados, solo pasamos el nombre
+            productCard.setAttribute('data-product-name', product.name);
+
+            // Nota: Aquí se quitó la descripción y el precio del innerHTML para reflejar tu array 'products'
             productCard.innerHTML = `
                 <img src="${product.image}" alt="${product.name}">
                 <div class="product-info">
@@ -108,6 +117,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             productGallery.appendChild(productCard);
+
+            // --- NUEVA FUNCIONALIDAD: CLIC EN PRODUCTO PARA WHATSAPP ---
+            productCard.addEventListener('click', () => {
+                const productName = productCard.getAttribute('data-product-name');
+                // No intentamos obtener description o price si están comentados en los objetos de producto
+
+                // Construye el mensaje de WhatsApp. Adaptado para solo usar el nombre.
+                let whatsappMessage = `Hola, estoy interesado en el producto: *${productName}*. Quisiera un presupuesto.`;
+
+                // Codifica el mensaje para la URL
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+
+                // Crea la URL de WhatsApp
+                const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+                // Abre WhatsApp en una nueva pestaña/ventana
+                window.open(whatsappURL, '_blank');
+            });
+            // --- FIN NUEVA FUNCIONALIDAD ---
         });
     }
 
