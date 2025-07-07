@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const WHATSAPP_NUMBER = '5493512339940';
     // Tu número de WhatsApp con código de país, sin '+' ni espacios
     const WHATSAPP_NUMBER_CORDOBA = '5493512339940'; // ¡TU NÚMERO DE CÓRDOBA!
-    const WHATSAPP_NUMBER_LACALERA = '5493543640927'; // ¡NÚMERO DE LA CALERA!
+    const WHATSAPP_NUMBR_LACALERAE = '5493543640927'; // ¡NÚMERO DE LA CALERA!
 
     // URL de Google Maps para incrustar (iframe)
     const MAP_URL_LACALERA = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.492072604228!2d-64.3423596253443!3d-31.34539773599267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d63001bd98ca3%3A0xd06d02da0f0cceba!2sDelicioso%20paladar%20empanadas!5e0!3m2!1ses!2sar!4v1751852181161!5m2!1ses!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'; // Reemplazar con tu URL real
-    const MAP_URL_CORDOBA = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.1199050917403!2d-64.13101472505572!3d-31.43836579731308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432bd2167a27edb%3A0xf1605b07b6a9b2f4!2sArco%20De%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1751852311808!5m2!1ses!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'; // Reemplazar con tu URL real
+    const MAP_URL_CORDOBA = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11461.0188429642!2d-64.3446725180707!3d-31.348455906545496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d620655555555%3A0xa87c9336fe564e17!2sLa%20Calera%2C%20Cordoba!5e0!3m2!1ses!2sar!4v1751853478818!5m2!1ses!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'; // Reemplazar con tu URL real
 
     // --- Navegación Responsiva (Menú Hamburguesa) ---
     const burger = document.querySelector('.burger');
