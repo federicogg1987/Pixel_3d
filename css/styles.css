@@ -92,30 +92,29 @@ nav {
 
 /* Hero Section */
 .hero-section {
-    /* Mejorado el degradado para mayor contraste y legibilidad */
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero-bg.jpg') no-repeat center center/cover;
-    color: var(--white);
-    text-align: center;
-    padding: 100px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60vh; /* Asegura un tamaño mínimo de la sección */
+   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero-bg-desktop.jpg') no-repeat center center/cover;
+   color: var(--white);
+   text-align: center;
+   padding: 100px 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 60vh; /* Asegura un tamaño mínimo de la sección */
 }
 
 .hero-content {
-    max-width: 800px;
+   max-width: 800px;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem; /* Ligeramente más grande para impacto */
-    margin-bottom: 25px;
-    line-height: 1.2; /* Mejora la legibilidad de títulos largos */
+   font-size: 3.5rem; /* Ligeramente más grande para impacto */
+   margin-bottom: 25px;
+   line-height: 1.2; /* Mejora la legibilidad de títulos largos */
 }
 
 .hero-content p {
-    font-size: 1.3rem; /* Ligeramente más grande */
-    margin-bottom: 40px;
+   font-size: 1.3rem; /* Ligeramente más grande */
+   margin-bottom: 40px;
 }
 
 /* Botones */
@@ -299,13 +298,43 @@ section h2:hover::after {
     background-color: var(--light-gray);
     border-top: 1px solid #eee;
     padding-bottom: 60px; /* Menos padding inferior para que el texto no quede tan lejos del título */
+    /* No pongas text-align: center; aquí para que no afecte a todo el contenido */
 }
 
+/* Centrar solo el título h2 de esta sección */
+.nosotros-section h2 {
+    text-align: center;
+    margin-bottom: 30px; /* Espacio debajo del título */
+}
+
+/* Estilo para párrafos: Centrar el bloque, pero alinear el texto a la izquierda dentro del bloque */
 .nosotros-section p {
     max-width: 900px; /* Un poco más de ancho para el texto */
-    margin: 0 auto;
+    margin: 0 auto; /* Centra el bloque del párrafo */
     font-size: 1.2rem; /* Texto un poco más grande */
     line-height: 1.8;
+    text-align: left; /* Alinea el texto a la izquierda dentro del párrafo */
+}
+
+/* Asegurar que h3 y elementos de lista también se alineen a la izquierda */
+.nosotros-section h3 {
+    text-align: left; /* Alinea el subtítulo a la izquierda */
+    max-width: 900px; /* Mismo ancho que los párrafos para consistencia */
+    margin: 30px auto 20px auto; /* Centra el bloque, añade margen superior e inferior */
+}
+
+.nosotros-section ul {
+    max-width: 900px; /* Mismo ancho que los párrafos para consistencia */
+    margin: 0 auto; /* Centra el bloque de la lista */
+    padding-left: 40px; /* Espacio para las viñetas */
+    text-align: left; /* Alinea el texto de la lista a la izquierda */
+    list-style-position: outside; /* Asegura que las viñetas estén fuera del texto */
+}
+
+.nosotros-section ul li {
+    font-size: 1.1rem; /* Tamaño de texto para los ítems de la lista */
+    line-height: 1.6;
+    margin-bottom: 10px; /* Espacio entre ítems de la lista */
 }
 
 /* Sección Contacto */
@@ -390,6 +419,17 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 25px; /* Más espacio entre elementos del footer */
+}
+
+/* Estilos para el enlace del footer */
+footer .footer-content a {
+    color: #1d295e; /* Un azul más oscuro (ejemplo) - ¡Puedes cambiar este color! */
+    text-decoration: none; /* Opcional: Quita el subrayado por defecto si prefieres */
+}
+
+footer .footer-content a:hover {
+    text-decoration: underline; /* Opcional: Añade un subrayado al pasar el ratón */
+    color: #ffffff; /* Un azul más oscuro (ejemplo) - ¡Puedes cambiar este color! */
 }
 
 .social-links a {
@@ -568,3 +608,108 @@ footer {
 .nav-active .nav-links li:nth-child(5) {
     animation-delay: 0.5s;
 }
+
+/* Sección Contacto - Nuevos Estilos */
+.location-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los botones */
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
+}
+
+.location-btn {
+    flex: 1; /* Permite que los botones ocupen espacio disponible */
+    min-width: 150px; /* Ancho mínimo para cada botón */
+}
+
+.contact-info-panel {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    padding: 30px;
+    margin-top: 30px;
+    text-align: center; /* Centrar el contenido dentro del panel */
+}
+
+.contact-info-panel h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.contact-info-panel p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.map-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 (altura / ancho = 9 / 16 = 0.5625) */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.google-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0; /* Quita el borde por defecto de los iframes */
+}
+
+.whatsapp-contact .whatsapp-btn {
+    display: inline-flex; /* Para alinear el ícono y el texto */
+    align-items: center;
+    gap: 10px; /* Espacio entre el ícono y el texto */
+    background-color: #25D366; /* Color de WhatsApp */
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.whatsapp-contact .whatsapp-btn:hover {
+    background-color: #1DA851; /* Un poco más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+.whatsapp-contact .whatsapp-btn i {
+    font-size: 1.3rem;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .location-buttons {
+        flex-direction: column; /* Apila los botones en móviles */
+        gap: 15px;
+    }
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+   .hero-section {
+       background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero-bg-mobile.jpg');
+       /* Las demás propiedades (no-repeat, center, cover, etc.) se mantienen del estilo base */
+   }
+}
+
+/* Media query para pantallas medianas (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+   .hero-section {
+       background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero-bg-tablet.jpg');
+       /* Las demás propiedades se mantienen */
+   }
+}
+
+/* No es necesario una media query para desktop si ya estableciste la imagen en el estilo base */
+/* @media (min-width: 1024px) {
+   .hero-section {
+       background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero-bg-desktop.jpg');
+   }
+} */
+
+/* Sección Contacto - Nuevos Estilos */

@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const WHATSAPP_NUMBER = '5493512339940';
     // Tu número de WhatsApp con código de país, sin '+' ni espacios
-    // ¡IMPORTANTE: CAMBIA ESTE NÚMERO POR EL TUYO REAL!
-    // Ejemplo para Argentina (Córdoba) si tu número es 351-1234567, sería 5493511234567
-    const WHATSAPP_NUMBER = '5493512339940'; 
+    const WHATSAPP_NUMBER_CORDOBA = '5493512339940'; // ¡TU NÚMERO DE CÓRDOBA!
+    const WHATSAPP_NUMBER_LACALERA = '5493517654321'; // ¡NÚMERO DEL SOCIO DE LA CALERA!
+
+    // URL de Google Maps para incrustar (iframe)
+    const MAP_URL_LACALERA = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3407.492072604228!2d-64.3423596253443!3d-31.34539773599267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d63001bd98ca3%3A0xd06d02da0f0cceba!2sDelicioso%20paladar%20empanadas!5e0!3m2!1ses!2sar!4v1751852181161!5m2!1ses!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'; // Reemplazar con tu URL real
+    const MAP_URL_CORDOBA = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.1199050917403!2d-64.13101472505572!3d-31.43836579731308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432bd2167a27edb%3A0xf1605b07b6a9b2f4!2sArco%20De%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1751852311808!5m2!1ses!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade'; // Reemplazar con tu URL real
 
     // --- Navegación Responsiva (Menú Hamburguesa) ---
     const burger = document.querySelector('.burger');
@@ -140,6 +144,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loadProducts(); // Carga los productos al iniciar la página
+
+    // --- NUEVA FUNCIONALIDAD: CONTACTO POR LOCALIDAD ---
+    const btnLaCalera = document.getElementById('btn-la-calera');
+    const btnCordoba = document.getElementById('btn-cordoba');
+    const contactInfoLaCalera = document.getElementById('contact-info-lacalera');
+    const contactInfoCordoba = document.getElementById('contact-info-cordoba');
+    const mapLaCaleraDiv = document.getElementById('map-lacalera');
+    const mapCordobaDiv = document.getElementById('map-cordoba');
+
+    // Función para mostrar el panel de contacto de una localidad y ocultar el otro
+    function showContactPanel(panelToShow, mapDivToShow, mapUrl, whatsappNumber) {
+        // Oculta todos los paneles primero
+        contactInfoLaCalera.style.display = 'none';
+        contactInfoCordoba.style.display = 'none';
+
+        // Muestra el panel deseado
+        panelToShow.style.display = 'block';
+
+        // Incrusta el mapa de Google Maps dinámicamente
+        // Esto evita que todos los mapas se carguen al inicio y se creen múltiples iframes
+        if (!mapDivToShow.querySelector('iframe')) { // Solo crea el iframe si no existe
+            const iframe = document.createElement('iframe');
+            iframe.src = mapUrl;
+            iframe.setAttribute('loading', 'lazy'); // Mejora el rendimiento de carga
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+            iframe.classList.add('google-map');
+            mapDivToShow.appendChild(iframe);
+        }
+
+        // Actualiza el enlace de WhatsApp dinámicamente
+        const whatsappLink = panelToShow.querySelector('.whatsapp-btn');
+        if (whatsappLink) {
+            whatsappLink.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola, quisiera más información sobre sus productos.')}`;
+        }
+    }
+
+    // Event Listeners para los botones
+    if (btnLaCalera && contactInfoLaCalera && mapLaCaleraDiv) {
+        btnLaCalera.addEventListener('click', () => {
+            showContactPanel(contactInfoLaCalera, mapLaCaleraDiv, MAP_URL_LACALERA, WHATSAPP_NUMBER_LACALERA);
+        });
+    }
+
+    if (btnCordoba && contactInfoCordoba && mapCordobaDiv) {
+        btnCordoba.addEventListener('click', () => {
+            showContactPanel(contactInfoCordoba, mapCordobaDiv, MAP_URL_CORDOBA, WHATSAPP_NUMBER_CORDOBA);
+        });
+    }
+    // --- FIN NUEVA FUNCIONALIDAD ---
 
     // --- Validación de Formulario de Contacto (Básica) ---
     const contactForm = document.getElementById('contact-form');

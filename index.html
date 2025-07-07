@@ -31,7 +31,7 @@
         <section id="hero" class="hero-section">
             <div class="hero-content">
                 <h1>Transforma tus Ideas en Realidad con Impresión 3D</h1>
-                <p>Creamos productos únicos y personalizados con la más alta calidad y precisión.</p>
+                <p>Creamos productos únicos y personalizados con la mejor terminación.</p>
                 <a href="#productos" class="btn">Explora Nuestros Productos</a>
             </div>
         </section>
@@ -44,7 +44,7 @@
 
         <section id="personalizacion" class="personalizacion-section">
             <div class="personalizacion-content">
-                <h2>Diseños Personalizados a Tu Medida</h2>
+                <h2>Diseños Personalizados</h2>
                 <p>¿Tienes una idea en mente? ¡La hacemos realidad! Ofrecemos servicios de diseño y personalización para que tus productos sean realmente únicos.</p>
                 <a href="#contacto" class="btn secondary-btn">¡Cotiza tu Proyecto!</a>
             </div>
@@ -55,36 +55,62 @@
 
         <section id="nosotros" class="nosotros-section">
             <h2>Quiénes Somos</h2>
-            <p>Somos apasionados por la impresión 3D y nos dedicamos a ofrecer productos innovadores y de alta calidad. Con tecnología de vanguardia y un equipo creativo, garantizamos resultados excepcionales que superarán tus expectativas.</p>
+            <p>Somos <strong>Pixel 3D</strong>, un equipo apasionado conformado por <strong>Federico y Tobías</strong>. Nos dedicamos a transformar tus ideas en realidad a través de la <strong>impresión 3D de alta calidad</strong>. Con una combinación de tecnología de vanguardia y creatividad, garantizamos <strong>resultados excepcionales con excelentes terminaciones</strong>.</p>
+
+            <p>Nuestra misión es hacer la impresión 3D accesible para todos, ofreciendo un servicio personalizado en <strong>La Calera y Córdoba Capital</strong>.</p>
+
+            <h3>Lo que puedes crear con nosotros:</h3>
+            <ul>
+                <li><strong>Impresiones a Pedido:</strong> ¿Tienes un diseño en mente? Envíanos una imagen y la medida final deseada, junto con la cantidad, y te enviaremos un presupuesto a medida.</li>
+                <li><strong>Prototipos:</strong> Damos vida a tus proyectos, desde la idea inicial hasta el prototipo físico.</li>
+                <li><strong>Diseños 3D a Partir de Fotos 2D:</strong> Una funcionalidad con un potencial ilimitado. Si tienes una imagen, podemos convertirla en un diseño 3D para impresión.</li>
+                <li><strong>Artículos Personalizados:</strong> Desde regalos de cumpleaños únicos, llaveros, juguetes, y rompecabezas 3D, hasta soportes para celulares de todo tipo, y una infinidad de creaciones más. ¡Tu imaginación es el límite!</li>
+            </ul>
+
+            <p>En Pixel 3D, no solo imprimimos; creamos soluciones y objetos únicos que se adaptan a tus necesidades.</p>
         </section>
 
         <section id="contacto" class="contacto-section">
-            <h2>Contáctanos</h2>
-            <p>Estamos listos para ayudarte a materializar tus ideas. ¡No dudes en escribirnos!</p>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">Enviar Mensaje</button>
-            </form>
-        </section>
+    <h2>Contáctanos</h2>
+    <p>Selecciona tu localidad y contacta con el responsable mas cercano:</p>
+
+    <div class="location-buttons">
+        <button class="btn location-btn" id="btn-la-calera" data-location="lacalera">La Calera</button>
+        <button class="btn location-btn" id="btn-cordoba" data-location="cordoba">Ciudad de Córdoba</button>
+    </div>
+
+    <div id="contact-info-lacalera" class="contact-info-panel" style="display: none;">
+        <h3>Contacto en La Calera</h3>
+        <p>Aquí Tobias se encargará personalmente de tu consulta.</p>
+        <div class="map-container">
+            <div id="map-lacalera" class="google-map"></div>
+        </div>
+        <div class="whatsapp-contact">
+            <a href="https://wa.me/[NUMERO_WHATSAPP_LA_CALERA]" target="_blank" class="btn whatsapp-btn" aria-label="WhatsApp La Calera">
+                <i class="fab fa-whatsapp"></i> Contactar a Tobias
+            </a>
+        </div>
+    </div>
+
+    <div id="contact-info-cordoba" class="contact-info-panel" style="display: none;">
+        <h3>Contacto en Ciudad de Córdoba</h3>
+        <p>Aquí Federico se encargará personalmente de tu consulta.</p>
+        <div class="map-container">
+            <div id="map-cordoba" class="google-map"></div>
+        </div>
+        <div class="whatsapp-contact">
+            <a href="https://wa.me/5493512339940" target="_blank" class="btn whatsapp-btn" aria-label="WhatsApp Córdoba">
+                <i class="fab fa-whatsapp"></i> Contactar a Federico
+            </a>
+        </div>
+    </div>
+
+    </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2025 PIXEL 3D. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="https://wa.me/543512339940" target="_blank" rel="noopener">¡Contactanos por WhatsApp!<i class="fab fa-whatsapp"></i></a>
-            </div>
+            <p>&copy; 2025 <a href="https://github.com/federicogg1987" target="_blank" rel="noopener noreferrer">FGG Dev.</a> Todos los derechos reservados.</p>
         </div>
     </footer>
 
