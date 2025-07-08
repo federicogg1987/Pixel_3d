@@ -92,7 +92,7 @@ nav {
 
 /* Hero Section */
 .hero-section {
-   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero-bg-desktop.jpg') no-repeat center center/cover;
+   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url('../img/hero-bg-desktop.jpg') no-repeat center center/cover;
    color: var(--white);
    text-align: center;
    padding: 100px 20px;
@@ -692,7 +692,7 @@ footer .footer-content a:hover {
 /* Media query para pantallas pequeñas (móviles) */
 @media (max-width: 767px) {
    .hero-section {
-       background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero-bg-mobile.jpg');
+       background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url('../img/hero-bg-mobile.jpg');
        /* Las demás propiedades (no-repeat, center, cover, etc.) se mantienen del estilo base */
    }
 }
@@ -700,7 +700,7 @@ footer .footer-content a:hover {
 /* Media query para pantallas medianas (tablets) */
 @media (min-width: 768px) and (max-width: 1023px) {
    .hero-section {
-       background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/hero-bg-tablet.jpg');
+       background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url('../img/hero-bg-tablet.jpg');
        /* Las demás propiedades se mantienen */
    }
 }
